@@ -1,0 +1,30 @@
+# Sensitive config
+.env
+*.token
+*secret*
+credentials*.json
+google_token*.json
+hermes_google*.json
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+dist/
+*.egg
+venv/
+.venv/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Bot logs / data
+*.log
+user_data/
+*.db

@@ -1,0 +1,211 @@
+tag,text,href
+a,Books to Scrape,index.html
+li,Home,
+a,Home,index.html
+li,All products,
+li,BooksTravelMysteryHistorical FictionSequential ArtClassicsPhilosophyRomanceWomens FictionFictionChildrensReligionNonfictionMusicDefaultScience FictionSports and GamesAdd a commentFantasyNew AdultYoung,
+a,Books,catalogue/category/books_1/index.html
+li,Travel,
+a,Travel,catalogue/category/books/travel_2/index.html
+li,Mystery,
+a,Mystery,catalogue/category/books/mystery_3/index.html
+li,Historical Fiction,
+a,Historical Fiction,catalogue/category/books/historical-fiction_4/index.html
+li,Sequential Art,
+a,Sequential Art,catalogue/category/books/sequential-art_5/index.html
+li,Classics,
+a,Classics,catalogue/category/books/classics_6/index.html
+li,Philosophy,
+a,Philosophy,catalogue/category/books/philosophy_7/index.html
+li,Romance,
+a,Romance,catalogue/category/books/romance_8/index.html
+li,Womens Fiction,
+a,Womens Fiction,catalogue/category/books/womens-fiction_9/index.html
+li,Fiction,
+a,Fiction,catalogue/category/books/fiction_10/index.html
+li,Childrens,
+a,Childrens,catalogue/category/books/childrens_11/index.html
+li,Religion,
+a,Religion,catalogue/category/books/religion_12/index.html
+li,Nonfiction,
+a,Nonfiction,catalogue/category/books/nonfiction_13/index.html
+li,Music,
+a,Music,catalogue/category/books/music_14/index.html
+li,Default,
+a,Default,catalogue/category/books/default_15/index.html
+li,Science Fiction,
+a,Science Fiction,catalogue/category/books/science-fiction_16/index.html
+li,Sports and Games,
+a,Sports and Games,catalogue/category/books/sports-and-games_17/index.html
+li,Add a comment,
+a,Add a comment,catalogue/category/books/add-a-comment_18/index.html
+li,Fantasy,
+a,Fantasy,catalogue/category/books/fantasy_19/index.html
+li,New Adult,
+a,New Adult,catalogue/category/books/new-adult_20/index.html
+li,Young Adult,
+a,Young Adult,catalogue/category/books/young-adult_21/index.html
+li,Science,
+a,Science,catalogue/category/books/science_22/index.html
+li,Poetry,
+a,Poetry,catalogue/category/books/poetry_23/index.html
+li,Paranormal,
+a,Paranormal,catalogue/category/books/paranormal_24/index.html
+li,Art,
+a,Art,catalogue/category/books/art_25/index.html
+li,Psychology,
+a,Psychology,catalogue/category/books/psychology_26/index.html
+li,Autobiography,
+a,Autobiography,catalogue/category/books/autobiography_27/index.html
+li,Parenting,
+a,Parenting,catalogue/category/books/parenting_28/index.html
+li,Adult Fiction,
+a,Adult Fiction,catalogue/category/books/adult-fiction_29/index.html
+li,Humor,
+a,Humor,catalogue/category/books/humor_30/index.html
+li,Horror,
+a,Horror,catalogue/category/books/horror_31/index.html
+li,History,
+a,History,catalogue/category/books/history_32/index.html
+li,Food and Drink,
+a,Food and Drink,catalogue/category/books/food-and-drink_33/index.html
+li,Christian Fiction,
+a,Christian Fiction,catalogue/category/books/christian-fiction_34/index.html
+li,Business,
+a,Business,catalogue/category/books/business_35/index.html
+li,Biography,
+a,Biography,catalogue/category/books/biography_36/index.html
+li,Thriller,
+a,Thriller,catalogue/category/books/thriller_37/index.html
+li,Contemporary,
+a,Contemporary,catalogue/category/books/contemporary_38/index.html
+li,Spirituality,
+a,Spirituality,catalogue/category/books/spirituality_39/index.html
+li,Academic,
+a,Academic,catalogue/category/books/academic_40/index.html
+li,Self Help,
+a,Self Help,catalogue/category/books/self-help_41/index.html
+li,Historical,
+a,Historical,catalogue/category/books/historical_42/index.html
+li,Christian,
+a,Christian,catalogue/category/books/christian_43/index.html
+li,Suspense,
+a,Suspense,catalogue/category/books/suspense_44/index.html
+li,Short Stories,
+a,Short Stories,catalogue/category/books/short-stories_45/index.html
+li,Novels,
+a,Novels,catalogue/category/books/novels_46/index.html
+li,Health,
+a,Health,catalogue/category/books/health_47/index.html
+li,Politics,
+a,Politics,catalogue/category/books/politics_48/index.html
+li,Cultural,
+a,Cultural,catalogue/category/books/cultural_49/index.html
+li,Erotica,
+a,Erotica,catalogue/category/books/erotica_50/index.html
+li,Crime,
+a,Crime,catalogue/category/books/crime_51/index.html
+h1,All products,
+li,A Light in the ...Â£51.77In stockAdd to basket,
+h3,A Light in the ...,
+a,A Light in the ...,catalogue/a-light-in-the-attic_1000/index.html
+p,Â£51.77,
+p,In stock,
+li,Tipping the VelvetÂ£53.74In stockAdd to basket,
+h3,Tipping the Velvet,
+a,Tipping the Velvet,catalogue/tipping-the-velvet_999/index.html
+p,Â£53.74,
+p,In stock,
+li,SoumissionÂ£50.10In stockAdd to basket,
+h3,Soumission,
+a,Soumission,catalogue/soumission_998/index.html
+p,Â£50.10,
+p,In stock,
+li,Sharp ObjectsÂ£47.82In stockAdd to basket,
+h3,Sharp Objects,
+a,Sharp Objects,catalogue/sharp-objects_997/index.html
+p,Â£47.82,
+p,In stock,
+li,Sapiens: A Brief History ...Â£54.23In stockAdd to basket,
+h3,Sapiens: A Brief History ...,
+a,Sapiens: A Brief History ...,catalogue/sapiens-a-brief-history-of-humankind_996/index.html
+p,Â£54.23,
+p,In stock,
+li,The Requiem RedÂ£22.65In stockAdd to basket,
+h3,The Requiem Red,
+a,The Requiem Red,catalogue/the-requiem-red_995/index.html
+p,Â£22.65,
+p,In stock,
+li,The Dirty Little Secrets ...Â£33.34In stockAdd to basket,
+h3,The Dirty Little Secrets ...,
+a,The Dirty Little Secrets ...,catalogue/the-dirty-little-secrets-of-getting-your-dream-job_994/index.html
+p,Â£33.34,
+p,In stock,
+li,The Coming Woman: A ...Â£17.93In stockAdd to basket,
+h3,The Coming Woman: A ...,
+a,The Coming Woman: A ...,catalogue/the-coming-woman-a-novel-based-on-the-life-of-the-infamous-feminist-victoria-woodhull_993/index.html
+p,Â£17.93,
+p,In stock,
+li,The Boys in the ...Â£22.60In stockAdd to basket,
+h3,The Boys in the ...,
+a,The Boys in the ...,catalogue/the-boys-in-the-boat-nine-americans-and-their-epic-quest-for-gold-at-the-1936-berlin-olympics_992/index.html
+p,Â£22.60,
+p,In stock,
+li,The Black MariaÂ£52.15In stockAdd to basket,
+h3,The Black Maria,
+a,The Black Maria,catalogue/the-black-maria_991/index.html
+p,Â£52.15,
+p,In stock,
+li,Starving Hearts (Triangular Trade ...Â£13.99In stockAdd to basket,
+h3,Starving Hearts (Triangular Trade ...,
+a,Starving Hearts (Triangular Trade ...,catalogue/starving-hearts-triangular-trade-trilogy-1_990/index.html
+p,Â£13.99,
+p,In stock,
+li,Shakespeare's SonnetsÂ£20.66In stockAdd to basket,
+h3,Shakespeare's Sonnets,
+a,Shakespeare's Sonnets,catalogue/shakespeares-sonnets_989/index.html
+p,Â£20.66,
+p,In stock,
+li,Set Me FreeÂ£17.46In stockAdd to basket,
+h3,Set Me Free,
+a,Set Me Free,catalogue/set-me-free_988/index.html
+p,Â£17.46,
+p,In stock,
+li,Scott Pilgrim's Precious Little ...Â£52.29In stockAdd to basket,
+h3,Scott Pilgrim's Precious Little ...,
+a,Scott Pilgrim's Precious Little ...,catalogue/scott-pilgrims-precious-little-life-scott-pilgrim-1_987/index.html
+p,Â£52.29,
+p,In stock,
+li,Rip it Up and ...Â£35.02In stockAdd to basket,
+h3,Rip it Up and ...,
+a,Rip it Up and ...,catalogue/rip-it-up-and-start-again_986/index.html
+p,Â£35.02,
+p,In stock,
+li,Our Band Could Be ...Â£57.25In stockAdd to basket,
+h3,Our Band Could Be ...,
+a,Our Band Could Be ...,catalogue/our-band-could-be-your-life-scenes-from-the-american-indie-underground-1981-1991_985/index.html
+p,Â£57.25,
+p,In stock,
+li,OlioÂ£23.88In stockAdd to basket,
+h3,Olio,
+a,Olio,catalogue/olio_984/index.html
+p,Â£23.88,
+p,In stock,
+li,Mesaerion: The Best Science ...Â£37.59In stockAdd to basket,
+h3,Mesaerion: The Best Science ...,
+a,Mesaerion: The Best Science ...,catalogue/mesaerion-the-best-science-fiction-stories-1800-1849_983/index.html
+p,Â£37.59,
+p,In stock,
+li,Libertarianism for BeginnersÂ£51.33In stockAdd to basket,
+h3,Libertarianism for Beginners,
+a,Libertarianism for Beginners,catalogue/libertarianism-for-beginners_982/index.html
+p,Â£51.33,
+p,In stock,
+li,It's Only the HimalayasÂ£45.17In stockAdd to basket,
+h3,It's Only the Himalayas,
+a,It's Only the Himalayas,catalogue/its-only-the-himalayas_981/index.html
+p,Â£45.17,
+p,In stock,
+li,Page 1 of 50,
+li,next,
+a,next,catalogue/page-2.html
