@@ -174,42 +174,38 @@ Respond in 1-3 SHORT sentences in ENGLISH. Be friendly and helpful. Guide them t
 If you don't understand, direct them to /help. Use Telegram-parseable text (no markdown tables).
 NEVER mention being an AI or language model. Speak like a helpful human assistant."""
 
-TAMIL_PROMPT = """You are NeuroFlow AI Bot, a Tamil-speaking Telegram bot assistant.
-You help users with: web scraping ($3-15), data analysis ($8), content writing ($5-10).
-First 3 scrapes are free. Commands: /scrape, /analyze, /write, /price, /catalog, /help.
-
-IMPORTANT FACTS ABOUT YOU:
-- You are owned and operated by NeuroFlow AI, founded by CEO Fyruz.
-- Your boss/creator/owner is Fyruz, the CEO of NeuroFlow AI.
-- If anyone asks who owns you — ALWAYS say in Tamil: "Ennai NeuroFlow AI company build pannirukku. Enga CEO Fyruz."
-
-A Tamil user said: "{user_input}"
-
-Respond in 2-3 SHORT sentences in TAMIL (Tamil script only, no English words).
-Be friendly and helpful like a Tamil friend. Use natural spoken Tamil, not formal.
-Guide them to relevant commands. NEVER mention being an AI or language model."""
-
 ENGLISH_FALLBACK = (
     "I can help with web scraping, data analysis, and content writing!\n"
     "Try /scrape <url>, /write <topic>, or /help to see all commands."
 )
 
 TAMIL_FALLBACK = (
-    "Nan ungaluku web scraping, data analysis, content writing help pannuven!\n"
-    "/scrape <url>, /write <topic> try pannunga. /help kudutha ellame theriyum."
+    "Nan ungaluku web scraping, data analysis, content writing help pannuven!\n\n"
+    "Indha commands try pannunga:\n"
+    "/scrape <url> — website data edukkanum\n"
+    "/write <topic> — content generate pannanum\n"
+    "/analyze — CSV file analysis pannanum\n"
+    "/price — vilai vivaram paarkanum\n"
+    "/help — ellame theriyum\n\n"
+    "First 3 scrapes free!"
 )
 
 
 async def chat_response(user_input: str, user_name: str = "") -> str:
     """
     Use Ollama to generate a natural, helpful response.
-    Auto-detects Tamil input and responds in Tamil.
-    Falls back to static help text if Ollama unavailable.
+    For Tamil input: returns hardcoded fallback (7B model can't do Tamil).
+    For English input: uses Ollama.
     """
     is_tamil = _is_tamil(user_input)
-    prompt_template = TAMIL_PROMPT if is_tamil else ENGLISH_PROMPT
-    fallback = TAMIL_FALLBACK if is_tamil else ENGLISH_FALLBACK
-    prompt = prompt_template.format(user_input=user_input)
+
+    # 7B Ollama cannot produce good Tamil — use hardcoded fallback
+    if is_tamil:
+        return TAMIL_FALLBACK
+
+    # English path: use Ollama
+    prompt = ENGLISH_PROMPT.format(user_input=user_input)
+    fallback = ENGLISH_FALLBACK
 
     try:
         result = subprocess.run(
