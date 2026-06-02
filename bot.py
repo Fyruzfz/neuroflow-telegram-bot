@@ -373,7 +373,6 @@ async def handle_text(update: Update, context: ContextTypes.DEFAULT_TYPE):
         )
     else:
         # Use Ollama for natural conversation
-        await update.message.reply_text("Thinking...")
         reply = await chat_response(text, user_name)
         await update.message.reply_text(reply, parse_mode=ParseMode.MARKDOWN)
 

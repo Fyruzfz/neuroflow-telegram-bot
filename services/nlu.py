@@ -48,10 +48,28 @@ INTENT_KEYWORDS = {
 }
 
 
+# Latin-script Tamil words (commonly typed in English letters)
+LATIN_TAMIL_WORDS = [
+    "vanakkam", "nan", "enna", "ennada", "ennadi", "evvalavu", "evlo",
+    "yaar", "yaaruka", "yaru", "ungaloda", "unnala", "pannu", "pannunga",
+    "pannanum", "mudiyum", "irukku", "venum", "kudunga", "edukka",
+    "eludhu", "paaru", "paakalam", "kidaikkum", "theriyuma", "puriyutha",
+    "illai", "irukka", "varuthu", "pola", "mathiri", "kastam",
+    "tamilla", "tamil la", "tamil-la", "tamizh", "pesu", "theriyadu",
+]
+
+
 def _is_tamil(text: str) -> bool:
-    """Detect if input text is primarily Tamil (3+ Tamil Unicode chars)."""
-    tamil_count = sum(1 for c in text if '\u0B80' <= c <= '\u0BFF')
-    return tamil_count >= 3
+    """Detect if input text is Tamil (Unicode OR Latin-script Tamil words)."""
+    # Check Tamil Unicode chars (e.g., வணக்கம்)
+    tamil_unicode = sum(1 for c in text if '\u0B80' <= c <= '\u0BFF')
+    if tamil_unicode >= 3:
+        return True
+
+    # Check Latin-script Tamil words (e.g., vanakkam, enna, evvalavu)
+    text_lower = text.lower()
+    latin_hits = sum(1 for w in LATIN_TAMIL_WORDS if w in text_lower)
+    return latin_hits >= 2
 
 
 # Hardcoded Tamil responses (more reliable than 7B Ollama for Tamil)
@@ -122,12 +140,11 @@ def detect_intent(text: str) -> str:
     if text_lower.startswith("/"):
         return "command"
 
-    # Check Tamil greetings first
-    tamil_greetings = ["vanakkam", "hi", "hello", "hai", "ey", "da", "di", "ennada", "ennadi"]
+    # Check Tamil greetings first (vanakkam always = Tamil greeting)
+    tamil_greetings = ["vanakkam", "ennada", "ennadi"]
     for g in tamil_greetings:
-        if text_lower.startswith(g) and len(text_lower.split()) <= 3:
-            if _is_tamil(text_lower) or g in ["vanakkam"]:
-                return "greeting"
+        if text_lower.startswith(g):
+            return "greeting"
 
     # Check keywords
     for intent, keywords in INTENT_KEYWORDS.items():
