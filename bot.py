@@ -37,6 +37,7 @@ from services.writer import generate_content
 from services.sheets import log_order
 from services.payment import generate_payment_link
 from services.nlu import detect_intent, chat_response, _is_tamil, tamil_intent_response
+from services.voice import voice_reply, generate_voice_response
 
 # ---------------------------------------------------------------------------
 # User & Order DB helpers
@@ -428,6 +429,67 @@ async def cmd_write(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await update.message.reply_text(f"Error: {result.get('error')}")
 
 # ---------------------------------------------------------------------------
+# Voice message handler (Tamil + English STT + TTS)
+# ---------------------------------------------------------------------------
+
+async def handle_voice(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    """Handle voice messages: STT → NLU → reply text + TTS voice reply."""
+    user = update.effective_user
+    user_name = user.first_name
+
+    # 1. Download voice file
+    voice = update.message.voice
+    voice_file = await voice.get_file()
+    audio_path = os.path.join(OUTPUT_DIR, f"voice_{uuid.uuid4().hex[:8]}.ogg")
+    await voice_file.download_to_drive(audio_path)
+
+    # 2. STT: voice → text
+    await update.message.reply_text("🎤 கேட்கிறேன்... / Listening...")
+    result = await voice_reply(audio_path)
+
+    if not result["success"]:
+        await update.message.reply_text("மன்னிக்கவும், voice-ஐ understand பண்ண முடியல. Text-ல try பண்ணுங்க.")
+        return
+
+    text = result["text"]
+    lang = result["lang"]
+
+    # 3. Route through NLU
+    intent = detect_intent(text)
+    is_tamil = _is_tamil(text) or lang == "ta"
+
+    # Get text response
+    if is_tamil and intent in ["help", "price", "scrape", "write", "analyze", "catalog", "owner", "greeting"]:
+        reply_text = tamil_intent_response(intent)
+    elif intent == "help":
+        reply_text = "Here are my commands:\n/scrape, /write, /analyze, /price, /catalog, /help"
+    elif intent == "owner":
+        reply_text = "I'm built by NeuroFlow AI, CEO Fyruz."
+    elif intent == "price":
+        reply_text = "Web Scraping $3-15 | Data Analysis $8 | Content $5-10"
+    else:
+        reply_text = await chat_response(text, user_name)
+
+    # 4. Send text reply
+    await update.message.reply_text(f"📝 *{text}*\n\n{reply_text}", parse_mode=ParseMode.MARKDOWN)
+
+    # 5. Generate & send voice reply
+    try:
+        voice_lang = "ta" if (is_tamil or lang == "ta") else "en"
+        voice_path = await generate_voice_response(reply_text, voice_lang)
+        if voice_path and os.path.exists(voice_path):
+            await update.message.reply_voice(voice=open(voice_path, "rb"))
+    except Exception as e:
+        print(f"[VOICE REPLY ERROR] {e}")
+
+    # Cleanup audio
+    try:
+        os.remove(audio_path)
+    except Exception:
+        pass
+
+
+# ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
 
@@ -456,6 +518,7 @@ def main():
     # Message handlers
     app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_text))
     app.add_handler(MessageHandler(filters.Document.ALL, handle_document))
+    app.add_handler(MessageHandler(filters.VOICE, handle_voice))
 
     print("NeuroFlow AI Bot starting...")
     print("Press Ctrl+C to stop")

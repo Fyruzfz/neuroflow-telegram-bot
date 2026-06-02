@@ -3,3 +3,5 @@ requests>=2.28
 beautifulsoup4>=4.11
 pandas>=1.5
 openpyxl>=3.0
+faster-whisper>=1.0
+edge-tts>=6.0
