@@ -36,7 +36,7 @@ from services.analyzer import run_analysis
 from services.writer import generate_content
 from services.sheets import log_order
 from services.payment import generate_payment_link
-from services.nlu import detect_intent, chat_response
+from services.nlu import detect_intent, chat_response, _is_tamil, tamil_intent_response
 
 # ---------------------------------------------------------------------------
 # User & Order DB helpers
@@ -333,6 +333,13 @@ async def handle_text(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     # Route through NLU
     intent = detect_intent(text)
+    is_tamil = _is_tamil(text)
+
+    # Tamil input with known intent → hardcoded Tamil response
+    if is_tamil and intent in ["help", "price", "scrape", "write", "analyze", "catalog", "owner", "greeting"]:
+        reply = tamil_intent_response(intent)
+        await update.message.reply_text(reply)
+        return
 
     if intent == "help":
         await cmd_help(update, context)
